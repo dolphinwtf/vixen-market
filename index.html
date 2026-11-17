@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vixen - Undetected Cheats</title>
+<style>
+  :root {
+    --bg: #0f0f11;
+    --panel: #18181b;
+    --ink: #ffffff;
+    --muted: #88888e;
+    --border: #27272a;
+    --accent: #4cc2ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  
+  .hero {
+    text-align: center;
+    padding: 80px 24px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .hero p {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 48px;
+  }
+  
+  .product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 0 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    width: 300px;
+    text-align: left;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .product-card:hover {
+    border-color: #3f3f46;
+  }
+  .product-card h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .product-card .tag {
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .feature-list {
+    list-style: none;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .feature-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .feature-list li::before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: bold;
+  }
+  .price {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .price span {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .buy-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: var(--ink);
+    color: var(--bg);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: opacity 0.2s;
+  }
+  .buy-btn:hover { opacity: 0.9; }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 80px;
+  }
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  footer a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Vixen</div>
+  <nav class="nav-links">
+    <a href="#">Store</a>
+    <a href="#">Status</a>
+    <a href="https://discord.gg/kNm6J6YqYx" target="_blank">Discord</a>
+  </nav>
+</header>
+
+<main class="hero">
+  <h1>Dominate the lobby.</h1>
+  <p>Premium, undetected game cheats. Built for performance, safety, and pure dominance.</p>
+</main>
+
+<div class="product-grid">
+  
+  <div class="product-card">
+    <h2>Vixen Loader</h2>
+    <div class="tag">Undetected</div>
+    <ul class="feature-list">
+      <li>ESP & Wallhack</li>
+      <li>Aimbot & Triggerbot</li>
+      <li>Stream-proof overlay</li>
+      <li>Instant HWID reset</li>
+    </ul>
+    <div class="price">$29.99 <span>/ month</span></div>
+    <a href="dashboard.html" class="buy-btn">Purchase</a>
+  </div>
+
+  <div class="product-card" style="border-color: #3f3f46;">
+    <h2>Vixen Lifetime</h2>
+    <div class="tag" style="color: #e4e4e7;">Best Value</div>
+    <ul class="feature-list">
+      <li>All Vixen Loader features</li>
+      <li>Lifetime access</li>
+      <li>Priority support</li>
+      <li>Free future updates</li>
+    </ul>
+    <div class="price">$99.99 <span>/ once</span></div>
+    <a href="dashboard.html" class="buy-btn">Purchase</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Vixen Software. All rights reserved.</p>
+  <div style="margin-top: 12px;">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Refund Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
