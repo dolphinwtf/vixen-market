@@ -661,15 +661,15 @@
         </div>
 
         <div class="pricing-options">
-          <a href="checkout.html" class="price-option">
+          <a href="#" onclick="goToCheckout('1 Day Access', 'price-day')" class="price-option">
             <span class="tier-name">1 Day Access</span>
             <span class="tier-price" id="price-day">$6.00</span>
           </a>
-          <a href="checkout.html" class="price-option">
+          <a href="#" onclick="goToCheckout('1 Week Access', 'price-week')" class="price-option">
             <span class="tier-name">1 Week Access</span>
             <span class="tier-price" id="price-week">$15.00</span>
           </a>
-          <a href="checkout.html" class="price-option">
+          <a href="#" onclick="goToCheckout('1 Month Access', 'price-month')" class="price-option">
             <span class="tier-name">1 Month Access</span>
             <span class="tier-price" id="price-month">$35.00</span>
           </a>
@@ -721,6 +721,14 @@
       spotlight.style.setProperty('--x', e.clientX + 'px');
       spotlight.style.setProperty('--y', e.clientY + 'px');
     });
+
+    // Checkout Routing
+    function goToCheckout(planName, priceId) {
+      const gameName = document.getElementById('pricing-title').innerText.replace(' Licenses', '');
+      const priceValue = document.getElementById(priceId).innerText;
+      
+      window.location.href = `checkout.html?game=${encodeURIComponent(gameName)}&plan=${encodeURIComponent(planName)}&price=${encodeURIComponent(priceValue)}`;
+    }
   </script>
 
   <!-- Firebase SDK & Live Database Hookup -->
