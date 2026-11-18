@@ -46,6 +46,12 @@
   .view.active {
     display: flex;
     flex-direction: column;
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* --- Top Bar --- */
@@ -67,7 +73,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background: transparent;
+    background: rgba(20, 20, 22, 0.5);
+    backdrop-filter: blur(8px);
     border: 1px solid var(--border);
     color: var(--ink);
     padding: 8px 20px;
@@ -75,9 +82,13 @@
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    transition: background 0.2s, border-color 0.2s;
+    transition: all 0.2s ease;
   }
-  .nav-btn:hover { background: var(--hover); border-color: #3f3f46; }
+  .nav-btn:hover { 
+    background: var(--hover); 
+    border-color: #52525b;
+    transform: translateY(-1px);
+  }
   .nav-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
   /* --- Home View --- */
@@ -99,6 +110,7 @@
     line-height: 1.6;
     margin-bottom: 60px;
     margin-top: -40px; 
+    letter-spacing: 0.01em;
   }
 
   .hero-grid {
@@ -120,10 +132,11 @@
   }
 
   .feature-box, .text-box {
-    background: var(--panel);
+    background: linear-gradient(145deg, #18181b, #111113);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   }
 
   .box-header {
@@ -161,10 +174,30 @@
     gap: 6px;
     margin-top: 12px;
     font-size: 14px;
+    transition: gap 0.2s;
   }
-  .text-box a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .text-box a:hover { text-decoration: underline; text-underline-offset: 4px; gap: 10px; }
 
-  .center-col { display: flex; justify-content: center; align-items: center; }
+  .center-col { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+  }
+
+  /* Glow behind the logo */
+  .center-col::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.05);
+    filter: blur(80px);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .brand-logo {
     font-size: 90px;
     font-weight: 300;
@@ -174,6 +207,8 @@
     text-align: center;
     font-family: "SF Pro Display", -apple-system, sans-serif;
     padding-left: 0.2em; 
+    z-index: 1;
+    text-shadow: 0 0 20px rgba(255,255,255,0.1);
   }
 
   .cta-btn {
@@ -188,12 +223,19 @@
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
-    transition: transform 0.2s, opacity 0.2s;
+    transition: all 0.2s ease;
     margin-bottom: 24px;
     cursor: pointer;
     border: none;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.1);
   }
-  .cta-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .cta-btn:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+  }
+  .cta-btn:active {
+    transform: translateY(1px);
+  }
   .cta-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
 
   .bottom-text {
@@ -206,7 +248,7 @@
     font-weight: 500;
   }
   .bottom-text span { display: flex; align-items: center; gap: 8px; }
-  .bottom-text span::before { content: "✓"; font-size: 11px; }
+  .bottom-text span::before { content: "✓"; font-size: 11px; color: var(--ink); }
 
   /* --- Products View --- */
   .products-container {
@@ -240,9 +282,9 @@
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, border-color 0.2s;
   }
-  .back-btn:hover { background: var(--hover); }
+  .back-btn:hover { background: var(--hover); border-color: #52525b; }
   .back-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; }
 
   .products-grid {
@@ -258,12 +300,27 @@
     display: block;
     aspect-ratio: 1 / 1;
     border: 1px solid var(--border);
-    transition: transform 0.2s, border-color 0.2s;
+    transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
-  .product-card:hover { transform: translateY(-4px); border-color: #52525b; }
-  .product-card img { width: 100%; height: 100%; object-fit: cover; }
+  .product-card:hover { 
+    transform: translateY(-6px); 
+    border-color: #52525b;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  
+  .product-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover img {
+    transform: scale(1.05);
+  }
 
   .product-overlay {
     position: absolute;
@@ -298,13 +355,13 @@
   }
 
   .pricing-card {
-    background: var(--panel);
+    background: linear-gradient(145deg, #18181b, #111113);
     border: 1px solid var(--border);
     border-radius: 16px;
     width: 100%;
     max-width: 520px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
   }
 
   /* Top Header Strip of Pricing Card */
@@ -323,6 +380,7 @@
     border-radius: 10px;
     object-fit: cover;
     border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
   }
 
   .pricing-title-group h2 {
@@ -355,13 +413,13 @@
     border-radius: 10px;
     text-decoration: none;
     color: var(--ink);
-    transition: background 0.2s, border-color 0.2s, transform 0.1s;
+    transition: all 0.2s ease;
   }
 
   .price-option:hover {
     background: var(--hover);
     border-color: #52525b;
-    transform: translateY(-1px);
+    transform: translateX(4px);
   }
 
   .price-option .tier-name {
@@ -379,6 +437,7 @@
     padding: 4px 12px;
     border-radius: 20px;
     color: var(--ink);
+    transition: background 0.2s, color 0.2s;
   }
 
   .price-option:hover .tier-price {
