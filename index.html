@@ -497,14 +497,13 @@
     justify-content: center;
   }
 
-  /* --- Checkout View Styles (Added) --- */
-  .checkout-container {
+  /* --- Checkout View Styles --- */
+  .checkout-wrapper {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 40px;
+    padding: 100px 40px 60px;
   }
 
   .checkout-card {
@@ -515,177 +514,107 @@
     max-width: 520px;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    padding: 40px;
   }
 
-  .checkout-header {
-    padding: 30px;
-    border-bottom: 1px solid var(--border);
-    background: rgba(255,255,255,0.02);
-    text-align: center;
-  }
-
-  .checkout-header h2 {
-    font-size: 22px;
+  .checkout-card h1 {
+    font-size: 28px;
     font-weight: 700;
-    margin-bottom: 6px;
-    letter-spacing: -0.01em;
+    margin-bottom: 8px;
   }
 
-  .checkout-header p {
-    font-size: 13px;
+  .checkout-card > p {
+    font-size: 14px;
     color: var(--muted);
-  }
-
-  .order-summary {
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-    background: rgba(0,0,0,0.2);
-  }
-
-  .order-summary .item-info { display: flex; flex-direction: column; gap: 4px; }
-  .order-summary .item-name { font-weight: 600; font-size: 16px; }
-  .order-summary .item-plan { font-size: 13px; color: var(--muted); }
-  .order-summary .item-price { font-size: 20px; font-weight: 700; }
-
-  .payment-section {
-    padding: 24px 30px 30px;
-  }
-
-  .payment-section h3 {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-
-  .payment-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 30px;
   }
 
   .payment-box {
     background: #0d0d10;
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-decoration: none;
-    color: var(--ink);
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .payment-box:hover {
-    border-color: #52525b;
-    background: var(--hover);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
   }
 
-  .payment-box .pay-title {
-    font-size: 14px;
+  .payment-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
     font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-bottom: 8px;
   }
 
-  .payment-box .pay-info {
-    font-size: 12px;
+  .payment-title svg { width: 20px; height: 20px; }
+  
+  .payment-desc {
+    font-size: 13px;
     color: var(--muted);
-    word-break: break-all;
-    font-family: monospace;
-    background: rgba(255,255,255,0.05);
-    padding: 8px;
-    border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .payment-box .pay-info:hover {
-    background: rgba(255,255,255,0.1);
+    line-height: 1.5;
+    margin-bottom: 16px;
   }
 
   .cashapp-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
     background: #00D54B;
     color: #000;
-    padding: 10px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    text-decoration: none;
-    margin-top: 4px;
-    transition: opacity 0.2s;
-  }
-  .cashapp-btn:hover { opacity: 0.9; }
-
-  .form-group {
-    margin-top: 24px;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-
-  .form-group input {
-    width: 100%;
-    background: #0d0d10;
-    border: 1px solid var(--border);
-    color: var(--ink);
     padding: 14px;
     border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-group input:focus { border-color: #52525b; }
-
-  .submit-btn {
-    width: 100%;
-    background: var(--ink);
-    color: #000;
-    border: none;
-    padding: 16px;
-    border-radius: 8px;
     font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
   }
-  .submit-btn:hover { 
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
-  }
-  .submit-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
+  .cashapp-btn:hover { 
+    opacity: 0.9; 
+    transform: translateY(-1px);
   }
 
-  #toast {
-    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-    background: var(--ink); color: #000; padding: 10px 20px; border-radius: 8px;
-    font-weight: 600; font-size: 14px; opacity: 0; transition: opacity 0.3s; pointer-events: none;
-    z-index: 100;
+  .instructions-box {
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .instructions-box h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #22c55e;
+    margin-bottom: 16px;
+    text-transform: capitalize;
+  }
+
+  .instructions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .instructions-list li {
+    font-size: 13px;
+    color: #d4d4d8;
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+  }
+
+  .instructions-list li span {
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .instructions-list a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   @media (max-width: 1100px) {
@@ -704,7 +633,7 @@
     .products-container { padding: 100px 20px 60px; }
     .pricing-card { margin: 20px; }
     .status-badge span:last-child { display: none; }
-    .payment-grid { grid-template-columns: 1fr; }
+    .checkout-card { padding: 24px; }
   }
 </style>
 </head>
@@ -854,15 +783,15 @@
         </div>
 
         <div class="pricing-options">
-          <a href="#" onclick="openCheckout('1 Day Access', 'price-day')" class="price-option">
+          <a href="#" onclick="openCheckout('1 Day Access', 'price-day'); return false;" class="price-option">
             <span class="tier-name">1 Day Access</span>
             <span class="tier-price" id="price-day">$6.00</span>
           </a>
-          <a href="#" onclick="openCheckout('1 Week Access', 'price-week')" class="price-option">
+          <a href="#" onclick="openCheckout('1 Week Access', 'price-week'); return false;" class="price-option">
             <span class="tier-name">1 Week Access</span>
             <span class="tier-price" id="price-week">$15.00</span>
           </a>
-          <a href="#" onclick="openCheckout('1 Month Access', 'price-month')" class="price-option">
+          <a href="#" onclick="openCheckout('1 Month Access', 'price-month'); return false;" class="price-option">
             <span class="tier-name">1 Month Access</span>
             <span class="tier-price" id="price-month">$35.00</span>
           </a>
@@ -879,72 +808,39 @@
   </main>
 
   <main id="checkout-view" class="view">
-    <div class="checkout-container">
+    <div class="checkout-wrapper">
       <div class="checkout-card">
-        <div class="checkout-header">
-          <h2>Complete Payment</h2>
-          <p>Send the exact amount using one of the methods below.</p>
+        <h1>Checkout</h1>
+        <p id="checkout-summary-text">You are purchasing 1 Day access for Rust - $6.00</p>
+
+        <div class="payment-box">
+          <div class="payment-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Pay via Cash App
+          </div>
+          <div class="payment-desc">Send to <strong>$sledvx</strong> and open a ticket on Discord.</div>
+          <a href="https://cash.app/$sledvx" target="_blank" class="cashapp-btn">
+            Open Cash App
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
         </div>
 
-        <div class="order-summary">
-          <div class="item-info">
-            <span class="item-name" id="checkout-game">Loading...</span>
-            <span class="item-plan" id="checkout-plan">Loading...</span>
-          </div>
-          <div class="item-price" id="checkout-price">$0.00</div>
+        <div class="instructions-box">
+          <h3>How to finish your order:</h3>
+          <ul class="instructions-list">
+            <li><span>1.</span> Open Cash App and send the exact amount to <strong>$sledvx</strong></li>
+            <li><span>2.</span> Take a screenshot of the receipt.</li>
+            <li><span>3.</span> Join our <a href="https://discord.com/invite/kNm6J6YqYx" target="_blank">Discord</a> and open a ticket.</li>
+            <li><span>4.</span> Send the receipt and the license you want. We'll deliver your key instantly.</li>
+          </ul>
         </div>
-
-        <div class="payment-section">
-          <h3>Payment Options</h3>
-          
-          <div class="payment-grid">
-            <div class="payment-box">
-              <div class="pay-title">
-                CashApp
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              </div>
-              <div class="pay-info" onclick="copyText('$sledvx')" title="Click to copy">
-                $sledvx
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              </div>
-              <a href="https://cash.app/$sledvx" target="_blank" class="cashapp-btn">
-                Open CashApp
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
-            </div>
-
-            <div class="payment-box">
-              <div class="pay-title">
-                Apple Pay
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-              </div>
-              <div class="pay-info" onclick="copyText('6616044986')" title="Click to copy">
-                (661) 604-4986
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              </div>
-              <div style="font-size: 10px; color: var(--muted); text-align: center; margin-top: 4px;">Send via CashApp to this number</div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Transaction Hash (TXID) or CashApp Note</label>
-            <input type="text" id="txid-input" placeholder="Paste your payment note here...">
-          </div>
-
-          <button class="submit-btn" id="submit-payment" onclick="submitPayment()">
-            Submit Payment
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          
-          <div style="margin-top: 15px; text-align: center;">
-             <button onclick="showView('pricing-view')" class="back-btn" style="margin: 0 auto; border:none; background:transparent; font-size: 12px;">Cancel</button>
-          </div>
+        
+        <div style="margin-top: 24px; text-align: center;">
+           <button onclick="showView('pricing-view')" class="back-btn" style="margin: 0 auto;">Back</button>
         </div>
       </div>
     </div>
   </main>
-
-  <div id="toast">Copied to clipboard!</div>
 
   <script>
     // View Switching Logic
@@ -991,41 +887,9 @@
       const gameName = document.getElementById('pricing-title').innerText.replace(' Licenses', '');
       const priceValue = document.getElementById(priceId).innerText;
       
-      document.getElementById('checkout-game').innerText = gameName;
-      document.getElementById('checkout-plan').innerText = planName;
-      document.getElementById('checkout-price').innerText = priceValue;
+      document.getElementById('checkout-summary-text').innerHTML = `You are purchasing ${planName} for ${gameName} - ${priceValue}`;
       
       showView('checkout-view');
-    }
-
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        const toast = document.getElementById('toast');
-        toast.style.opacity = '1';
-        setTimeout(() => { toast.style.opacity = '0'; }, 2000);
-      });
-    }
-
-    function submitPayment() {
-      const txid = document.getElementById('txid-input').value;
-      if (!txid.trim()) {
-        alert("Please paste your payment note or transaction ID before submitting.");
-        return;
-      }
-
-      const btn = document.getElementById('submit-payment');
-      btn.innerText = "Processing...";
-      btn.disabled = true;
-
-      setTimeout(() => {
-        btn.innerText = "Submitted Successfully";
-        btn.style.background = "#22c55e";
-        document.getElementById('txid-input').value = '';
-        
-        setTimeout(() => {
-          showView('home-view');
-        }, 3000);
-      }, 1500);
     }
   </script>
 
