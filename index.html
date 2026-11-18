@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vixen - Verify Payment</title>
+<title>Vixen - Checkout</title>
 <style>
   :root {
     --bg: #0f0f11;
@@ -11,8 +11,11 @@
     --ink: #ffffff;
     --muted: #88888e;
     --border: #27272a;
+    --btn-bg: #ffffff;
+    --btn-ink: #000000;
     --hover: #27272a;
     --accent: #22c55e;
+    --blue: #3b82f6;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,6 +49,11 @@
     text-transform: uppercase;
   }
 
+  .top-actions {
+    display: flex;
+    gap: 12px;
+  }
+
   .nav-btn {
     display: flex;
     align-items: center;
@@ -65,14 +73,14 @@
   /* --- Main Content --- */
   .container {
     flex: 1;
-    max-width: 520px;
+    max-width: 680px;
     margin: 0 auto;
     width: 100%;
     padding: 40px 24px;
   }
 
   h1 {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
     margin-bottom: 8px;
     letter-spacing: -0.02em;
@@ -84,103 +92,91 @@
     margin-bottom: 32px;
   }
 
-  /* --- Upload Box --- */
-  .upload-box {
-    background: #0d0d10;
-    border: 2px dashed var(--border);
-    border-radius: 12px;
-    padding: 40px 24px;
-    text-align: center;
-    margin-bottom: 24px;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    position: relative;
-  }
-  .upload-box:hover {
-    border-color: var(--muted);
-    background: var(--panel);
-  }
-
-  .upload-box svg {
-    width: 32px;
-    height: 32px;
-    stroke: var(--muted);
-    margin-bottom: 12px;
-  }
-
-  .upload-box p {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-
-  .upload-box span {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .upload-box input[type="file"] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  /* --- Preview Image --- */
-  #preview-container {
-    display: none;
+  /* --- Method Box --- */
+  .method-box {
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
     margin-bottom: 24px;
-    text-align: center;
-  }
-  #preview-container img {
-    max-width: 100%;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
-  }
-  .filename {
-    display: block;
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 8px;
   }
 
-  /* --- Actions --- */
-  .ticket-btn {
+  .method-icon {
+    background: var(--accent);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    background: var(--ink);
-    color: #000;
-    border: none;
-    border-radius: 8px;
-    padding: 14px;
-    font-weight: 700;
-    font-size: 15px;
-    width: 100%;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.2s;
-    margin-bottom: 16px;
-  }
-  .ticket-btn:hover { opacity: 0.9; }
-
-  .ticket-btn svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
+    flex-shrink: 0;
+    margin-top: 2px;
   }
 
-  .help-text {
-    text-align: center;
+  .method-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: #000;
+  }
+
+  .method-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .method-content p {
     color: var(--muted);
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.5;
+  }
+
+  /* --- Instructions Box --- */
+  .instructions-box {
+    background: #0d0d10;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .instructions-box h3 {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .instructions-box ol {
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .instructions-box li {
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+
+  .highlight {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  a.text-link {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--muted);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.2s;
+  }
+  a.text-link:hover {
+    text-decoration-color: var(--ink);
   }
 
 </style>
@@ -190,61 +186,43 @@
   <!-- Top Bar -->
   <header class="topbar">
     <div class="logo">VIXEN</div>
-    <a href="checkout.html" class="nav-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Back
-    </a>
+    <div class="top-actions">
+      <a href="index.html" class="nav-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </a>
+      <a href="https://discord.gg/YOUR_INVITE" target="_blank" class="nav-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
+        Discord
+      </a>
+    </div>
   </header>
 
   <!-- Main Content -->
   <main class="container">
-    <h1>Verify Payment</h1>
-    <p class="subtitle">Upload your Cash App receipt to finish the process.</p>
+    <h1>Checkout</h1>
+    <p class="subtitle">You are purchasing 1 Day access for Rust - $6.00</p>
 
-    <!-- Upload Area -->
-    <label class="upload-box" id="dropzone">
-      <input type="file" id="fileInput" accept="image/*">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <p>Click to upload receipt</p>
-      <span>PNG, JPG up to 5MB</span>
-    </label>
-
-    <!-- Preview Area -->
-    <div id="preview-container">
-      <img id="preview-img" src="" alt="Receipt preview">
-      <span class="filename" id="file-name"></span>
+    <div class="method-box">
+      <div class="method-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      </div>
+      <div class="method-content">
+        <h3>Pay via Cash App</h3>
+        <p>Send to $YourCashTag and open a ticket on Discord.</p>
+      </div>
     </div>
 
-    <!-- Ticket Button -->
-    <a href="https://discord.gg/YOUR_INVITE" target="_blank" class="ticket-btn">
-      <svg viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
-      Open Purchase Ticket
-    </a>
-
-    <p class="help-text">Clicking this will open our Discord. Join the server, go to #create-ticket, and attach the screenshot you just selected.</p>
+    <div class="instructions-box">
+      <h3>How to finish your order:</h3>
+      <ol>
+        <li>Open Cash App and send the exact amount to <span class="highlight">$YourCashTag</span></li>
+        <li>Take a screenshot of the receipt.</li>
+        <li>Join our <a href="https://discord.gg/YOUR_INVITE" target="_blank" class="text-link">Discord</a> and open a ticket.</li>
+        <li>Send the receipt and the license you want. We'll deliver your key instantly.</li>
+      </ol>
+    </div>
   </main>
 
-  <!-- Script for Image Preview -->
-  <script>
-    const fileInput = document.getElementById('fileInput');
-    const previewContainer = document.getElementById('preview-container');
-    const previewImg = document.getElementById('preview-img');
-    const fileName = document.getElementById('file-name');
-    const dropzone = document.getElementById('dropzone');
-
-    fileInput.addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          previewImg.src = e.target.result;
-          fileName.textContent = file.name;
-          previewContainer.style.display = 'block';
-          dropzone.style.display = 'none';
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-  </script>
 </body>
 </html>
