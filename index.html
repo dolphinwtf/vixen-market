@@ -59,7 +59,7 @@
     right: 0;
     width: 100%;
     z-index: 10;
-    pointer-events: none; /* Let clicks pass through to view */
+    pointer-events: none;
   }
 
   .nav-btn {
@@ -191,6 +191,7 @@
     transition: transform 0.2s, opacity 0.2s;
     margin-bottom: 24px;
     cursor: pointer;
+    border: none;
   }
   .cta-btn:hover { transform: translateY(-2px); opacity: 0.9; }
   .cta-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
@@ -286,7 +287,7 @@
     margin-bottom: 4px;
   }
 
-  /* --- Pricing View --- */
+  /* --- Pricing View (Sleek Design) --- */
   .pricing-container {
     display: flex;
     align-items: center;
@@ -296,55 +297,100 @@
     padding: 40px;
   }
 
-  .pricing-box {
+  .pricing-card {
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 40px;
-    text-align: center;
-    max-width: 500px;
     width: 100%;
+    max-width: 520px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   }
 
-  .pricing-box h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
+  /* Top Header Strip of Pricing Card */
+  .pricing-header {
+    padding: 30px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.02);
   }
 
+  .pricing-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+  }
+
+  .pricing-title-group h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .pricing-title-group p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* Options */
   .pricing-options {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 30px;
+    gap: 10px;
   }
 
   .price-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 16px 24px;
-    border-radius: 12px;
+    padding: 16px 20px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
     text-decoration: none;
     color: var(--ink);
-    transition: border-color 0.2s, background 0.2s;
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
   }
 
   .price-option:hover {
-    border-color: #52525b;
     background: var(--hover);
+    border-color: var(--border);
+    transform: translateX(4px);
   }
 
-  .price-option span:first-child {
+  .price-option .tier-name {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  .price-option span:last-child {
+  .price-option .tier-price {
     font-weight: 700;
-    font-size: 18px;
-    color: #d4d4d8;
+    font-size: 16px;
+    background: rgba(255,255,255,0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .price-option:hover .tier-price {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  /* Footer */
+  .pricing-footer {
+    padding: 20px 30px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
   }
 
   /* --- Responsive --- */
@@ -361,6 +407,7 @@
     .products-grid { grid-template-columns: repeat(2, 1fr); }
     .topbar { padding: 20px; }
     .products-container { padding: 100px 20px 60px; }
+    .pricing-card { margin: 20px; }
   }
 </style>
 </head>
@@ -458,35 +505,35 @@
       </div>
 
       <div class="products-grid">
-        <div onclick="openPricing('Rust')" class="product-card">
+        <div onclick="openPricing('Rust', 'rust.jpg')" class="product-card">
           <img src="rust.jpg" alt="Rust">
           <div class="product-overlay"><h3>Rust</h3></div>
         </div>
-        <div onclick="openPricing('Apex Legends')" class="product-card">
+        <div onclick="openPricing('Apex Legends', 'apex.jpg')" class="product-card">
           <img src="apex.jpg" alt="Apex Legends">
           <div class="product-overlay"><h3>Apex Legends</h3></div>
         </div>
-        <div onclick="openPricing('Fortnite')" class="product-card">
+        <div onclick="openPricing('Fortnite', 'fortnite.webp')" class="product-card">
           <img src="fortnite.webp" alt="Fortnite">
           <div class="product-overlay"><h3>Fortnite</h3></div>
         </div>
-        <div onclick="openPricing('DayZ')" class="product-card">
+        <div onclick="openPricing('DayZ', 'dayz.jpg')" class="product-card">
           <img src="dayz.jpg" alt="DayZ">
           <div class="product-overlay"><h3>DayZ</h3></div>
         </div>
-        <div onclick="openPricing('Arc Raiders')" class="product-card">
+        <div onclick="openPricing('Arc Raiders', 'arcraiders.webp')" class="product-card">
           <img src="arcraiders.webp" alt="Arc Raiders">
           <div class="product-overlay"><h3>Arc Raiders</h3></div>
         </div>
-        <div onclick="openPricing('Dead by Daylight')" class="product-card">
+        <div onclick="openPricing('Dead by Daylight', 'dbd.jpg')" class="product-card">
           <img src="dbd.jpg" alt="Dead by Daylight">
           <div class="product-overlay"><h3>Dead by Daylight</h3></div>
         </div>
-        <div onclick="openPricing('Roblox')" class="product-card">
+        <div onclick="openPricing('Roblox', 'robruin.jpg')" class="product-card">
           <img src="robruin.jpg" alt="Roblox">
           <div class="product-overlay"><h3>Roblox</h3></div>
         </div>
-        <div onclick="openPricing('Wardogs')" class="product-card">
+        <div onclick="openPricing('Wardogs', 'wardogs.jpg')" class="product-card">
           <img src="wardogs.jpg" alt="Wardogs">
           <div class="product-overlay"><h3>Wardogs</h3></div>
         </div>
@@ -497,40 +544,52 @@
   <!-- 3. PRICING VIEW -->
   <main id="pricing-view" class="view">
     <div class="pricing-container">
-      <div class="pricing-box">
-        <h2 id="pricing-title">Game Licenses</h2>
+      
+      <div class="pricing-card">
+        <!-- Top Header Strip -->
+        <div class="pricing-header">
+          <img id="pricing-image" src="rust.jpg" alt="Game Icon" class="pricing-icon">
+          <div class="pricing-title-group">
+            <h2 id="pricing-title">Rust Licenses</h2>
+            <p>Select a plan to proceed to checkout.</p>
+          </div>
+        </div>
+
+        <!-- Options -->
         <div class="pricing-options">
           <a href="checkout.html" class="price-option">
-            <span>1 Day</span>
-            <span>$6.00</span>
+            <span class="tier-name">1 Day Access</span>
+            <span class="tier-price">$6.00</span>
           </a>
           <a href="checkout.html" class="price-option">
-            <span>1 Week</span>
-            <span>$15.00</span>
+            <span class="tier-name">1 Week Access</span>
+            <span class="tier-price">$15.00</span>
           </a>
           <a href="checkout.html" class="price-option">
-            <span>1 Month</span>
-            <span>$35.00</span>
+            <span class="tier-name">1 Month Access</span>
+            <span class="tier-price">$35.00</span>
           </a>
         </div>
-        <button onclick="showView('products-view')" class="back-btn" style="margin: 0 auto;">
-          <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Back to Games
-        </button>
+
+        <!-- Footer -->
+        <div class="pricing-footer">
+          <button onclick="showView('products-view')" class="back-btn">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to Games
+          </button>
+        </div>
       </div>
+
     </div>
   </main>
 
   <script>
     function showView(viewId) {
-      // Hide all views
       document.querySelectorAll('.view').forEach(view => {
         view.classList.remove('active');
       });
-      // Show target view
       document.getElementById(viewId).classList.add('active');
       
-      // Update URL without jumping
       if(viewId === 'home-view') {
         history.pushState(null, '', window.location.pathname);
       } else if (viewId === 'products-view') {
@@ -538,14 +597,12 @@
       }
     }
 
-    function openPricing(gameName) {
-      // Set the title of the pricing page
+    function openPricing(gameName, imageSrc) {
       document.getElementById('pricing-title').innerText = gameName + ' Licenses';
-      // Show the pricing view
+      document.getElementById('pricing-image').src = imageSrc;
       showView('pricing-view');
     }
 
-    // Handle back/forward browser buttons
     window.addEventListener('popstate', () => {
       const hash = window.location.hash;
       if (hash === '#products') {
