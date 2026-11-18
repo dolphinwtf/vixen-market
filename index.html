@@ -12,7 +12,8 @@
     --ink: #ffffff;
     --muted: #88888e;
     --purple: #9d4edd;
-    --accent: #00d26a;
+    --cashapp: #00d26a;
+    --danger: #ff4444;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -215,11 +216,11 @@
   }
 
   .game-card {
-    background-color: #1a1a24;
+    background-color: transparent;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border: 1px solid var(--panel-border);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -291,8 +292,8 @@
   }
 
   .payment-box:hover {
-    border-color: var(--muted);
-    background: rgba(255,255,255,0.05);
+    border-color: var(--cashapp);
+    background: rgba(0, 210, 106, 0.05);
   }
 
   .payment-info {
@@ -312,9 +313,9 @@
   }
 
   .payment-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--ink);
+    width: 24px;
+    height: 24px;
+    fill: var(--cashapp);
   }
 
   .payment-name {
@@ -326,6 +327,120 @@
     font-size: 12px;
     color: var(--muted);
     margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .cashapp-steps {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 32px;
+    max-width: 500px;
+  }
+  
+  .cashapp-steps h3 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--cashapp);
+  }
+  
+  .cashapp-steps ol {
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .cashapp-steps strong {
+    color: #fff;
+  }
+
+  .proof-upload {
+    background: var(--panel);
+    border: 1px dashed var(--panel-border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 24px;
+    max-width: 500px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .proof-upload:hover {
+    border-color: var(--muted);
+  }
+  .proof-upload h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .proof-upload p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* --- TICKET VIEW --- */
+  .ticket-view {
+    flex: 1;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+  
+  .ticket-view h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+
+  .ticket-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 600px;
+  }
+  
+  .ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 16px;
+  }
+  
+  .ticket-row:last-child {
+    border-bottom: none;
+    margin-bottom: 32px;
+  }
+  
+  .ticket-label {
+    color: var(--muted);
+  }
+  
+  .ticket-value {
+    font-weight: 600;
+    text-align: right;
+  }
+  
+  .proof-preview {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 12px;
+    border: 1px solid var(--panel-border);
+  }
+  
+  .ticket-status {
+    background: rgba(0, 210, 106, 0.1);
+    color: var(--cashapp);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid rgba(0, 210, 106, 0.2);
   }
 
   /* Modal */
@@ -415,10 +530,9 @@
     .games-grid { grid-template-columns: repeat(3, 1fr); }
   }
   
-  /* Mobile fixes */
   @media (max-width: 768px) {
-    .nav-pills { display: flex; } /* Keep nav pills visible */
-    .nav-pill.discord-btn { display: none; } /* Hide discord on mobile to save space */
+    .nav-pills { display: flex; }
+    .nav-pill.discord-btn { display: none; }
     .center-logo { font-size: 40px; }
     .side-col { flex-direction: column; }
     .action-buttons { flex-direction: column; width: 100%; gap: 12px; }
@@ -548,43 +662,66 @@
   <p class="subtitle" id="checkoutSubtitle">Select a payment method for your license.</p>
   
   <div class="payment-options">
-    <!-- Card -->
-    <div class="payment-box">
+    <!-- Cash App Option -->
+    <a href="https://cash.app/$YourCashTag" target="_blank" class="payment-box">
       <div class="payment-info">
         <div class="payment-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
         </div>
         <div>
-          <div class="payment-name">Credit / Debit Card</div>
-          <div class="payment-desc">Pay with Visa, Mastercard, Amex</div>
+          <div class="payment-name">Pay via Cash App</div>
+          <div class="payment-desc">Send to <strong>$YourCashTag</strong> and open a ticket on Discord.</div>
         </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="cashapp-steps">
+    <h3>How to finish your order:</h3>
+    <ol>
+      <li>Open Cash App and send the exact amount to <strong>$YourCashTag</strong>.</li>
+      <li>Take a screenshot of the receipt.</li>
+      <li>Upload the receipt below and click Create Ticket.</li>
+      <li>Join our <a href="https://discord.com/invite/kNm6J6YqYx" target="_blank" style="color: #fff; font-weight: bold; text-decoration: underline;">Discord</a> to receive your key.</li>
+    </ol>
+  </div>
+
+  <!-- Payment Proof Upload -->
+  <div class="proof-upload" onclick="document.getElementById('proofFile').click()">
+    <input type="file" id="proofFile" style="display: none;" accept="image/*" onchange="handleFileUpload(event)">
+    <h4 id="uploadText">Upload Payment Screenshot</h4>
+    <p id="uploadSubtext">Click here to select an image from your device.</p>
+    <img id="previewImg" class="hidden" style="max-width: 100%; border-radius: 8px; margin-top: 16px; display: block;" alt="Receipt Preview">
+  </div>
+
+  <button class="btn btn-primary" style="margin-top: 24px; width: 100%; max-width: 500px; justify-content: center;" onclick="createTicket()">Create Purchase Ticket</button>
+</div>
+
+<!-- TICKET VIEW -->
+<div id="ticketView" class="ticket-view hidden">
+  <h1>Ticket Created</h1>
+  <div class="ticket-card">
+    <div class="ticket-row">
+      <span class="ticket-label">Product</span>
+      <span class="ticket-value" id="ticketGame">Game Name</span>
+    </div>
+    <div class="ticket-row">
+      <span class="ticket-label">Duration</span>
+      <span class="ticket-value" id="ticketDuration">1 Day</span>
+    </div>
+    <div class="ticket-row">
+      <span class="ticket-label">Total Price</span>
+      <span class="ticket-value" id="ticketPrice">$6.00</span>
+    </div>
+    <div class="ticket-row">
+      <span class="ticket-label">Proof Attached</span>
+      <div style="text-align: right;">
+        <img id="ticketProofImg" style="max-width: 150px; border-radius: 6px; border: 1px solid var(--panel-border);" alt="Proof">
       </div>
     </div>
 
-    <!-- Cash App -->
-    <div class="payment-box">
-      <div class="payment-info">
-        <div class="payment-icon" style="background: rgba(0, 210, 106, 0.1);">
-          <svg viewBox="0 0 24 24" style="fill: #00d26a;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-        </div>
-        <div>
-          <div class="payment-name">Cash App</div>
-          <div class="payment-desc">Pay directly via your Cash App balance</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Apple Pay -->
-    <div class="payment-box">
-      <div class="payment-info">
-        <div class="payment-icon">
-          <svg viewBox="0 0 24 24"><path d="M16.365 12.372c-.022-2.48 2.026-3.683 2.115-3.732-1.16-1.695-2.96-1.928-3.59-1.955-1.517-.155-2.97.9-3.74.9-.77 0-1.962-.88-3.223-.855-1.635.025-3.146.95-3.985 2.417-1.708 2.96-.432 7.316 1.24 9.713.817 1.178 1.78 2.488 3.08 2.44 1.257-.05 1.73-.8 3.243-.8s1.96.8 3.28.78c1.34-.02 2.19-1.195 3.015-2.38 1.01-1.45 1.43-2.87 1.45-2.94-.03-.012-2.785-1.07-2.81-4.28zM14.15 5.14c.68-.83 1.14-1.98 1.01-3.14-1.01.04-2.22.67-2.94 1.52-.64.74-1.17 1.91-1.01 3.06 1.11.09 2.24-.58 2.94-1.44z"/></svg>
-        </div>
-        <div>
-          <div class="payment-name">Apple Pay</div>
-          <div class="payment-desc">Fast and secure checkout with Face ID</div>
-        </div>
-      </div>
+    <div class="ticket-status">
+      Pending Verification. Please open a ticket in Discord and send your receipt.
     </div>
   </div>
 </div>
@@ -623,6 +760,7 @@
   const mainView = document.getElementById('mainView');
   const productsView = document.getElementById('productsView');
   const checkoutView = document.getElementById('checkoutView');
+  const ticketView = document.getElementById('ticketView');
   const backBtn = document.getElementById('backBtn');
   
   const modal = document.getElementById('productModal');
@@ -631,11 +769,26 @@
   const gameCards = document.querySelectorAll('.game-card');
   
   const checkoutSubtitle = document.getElementById('checkoutSubtitle');
+  
+  const proofFile = document.getElementById('proofFile');
+  const uploadText = document.getElementById('uploadText');
+  const uploadSubtext = document.getElementById('uploadSubtext');
+  const previewImg = document.getElementById('previewImg');
+  
+  const ticketGame = document.getElementById('ticketGame');
+  const ticketDuration = document.getElementById('ticketDuration');
+  const ticketPrice = document.getElementById('ticketPrice');
+  const ticketProofImg = document.getElementById('ticketProofImg');
+
+  let currentGame = "";
+  let currentDuration = "";
+  let currentPrice = "";
 
   function hideAll() {
     mainView.classList.add('hidden');
     productsView.classList.add('hidden');
     checkoutView.classList.add('hidden');
+    ticketView.classList.add('hidden');
     backBtn.classList.add('hidden');
   }
 
@@ -653,10 +806,12 @@
   }
 
   function handleBack() {
-    if (!checkoutView.classList.contains('hidden')) {
-      showProducts(); // If on checkout, go back to products
+    if (!ticketView.classList.contains('hidden')) {
+      showProducts(); // Go back to products from ticket
+    } else if (!checkoutView.classList.contains('hidden')) {
+      showProducts(); // Go back to products from checkout
     } else {
-      showMain(); // If on products, go back to main
+      showMain(); // Go back to main
     }
   }
 
@@ -667,30 +822,4 @@
       modalTitle.textContent = gameName;
       modal.classList.add('active');
     });
-  });
-
-  closeBtn.addEventListener('click', () => {
-    modal.classList.remove('active');
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-    }
-  });
-
-  function openCheckout(duration, price) {
-    modal.classList.remove('active');
-    
-    const game = modalTitle.textContent;
-    checkoutSubtitle.textContent = `You are purchasing ${duration} access for ${game} - $${price.toFixed(2)}`;
-    
-    hideAll();
-    checkoutView.classList.remove('hidden');
-    backBtn.classList.remove('hidden');
-    window.scrollTo(0, 0);
-  }
-</script>
-
-</body>
-</html>
+ 
