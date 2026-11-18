@@ -954,6 +954,9 @@
       });
       document.getElementById(viewId).classList.add('active');
       
+      // Forces the browser to the top so the new view is visible
+      window.scrollTo(0, 0);
+      
       if(viewId === 'home-view') {
         history.pushState(null, '', window.location.pathname);
       } else if (viewId === 'products-view') {
