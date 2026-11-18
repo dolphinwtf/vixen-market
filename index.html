@@ -12,6 +12,7 @@
     --ink: #ffffff;
     --muted: #88888e;
     --purple: #9d4edd;
+    --accent: #00d26a;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,7 +42,7 @@
     position: relative;
     z-index: 10;
   }
-  .logo-small { font-size: 20px; font-weight: 800; letter-spacing: 0.1em; }
+  .logo-small { font-size: 20px; font-weight: 800; letter-spacing: 0.1em; cursor: pointer;}
   .nav-pills { display: flex; gap: 12px; }
   .nav-pill {
     display: flex;
@@ -213,7 +214,6 @@
     gap: 16px;
   }
 
-  /* Game Card with Image Background */
   .game-card {
     background-color: #1a1a24;
     background-size: cover;
@@ -232,13 +232,11 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
   }
 
   .game-card:hover {
     border-color: var(--purple);
     transform: translateY(-2px);
-    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
   }
 
   .game-card h3 {
@@ -248,6 +246,86 @@
     text-transform: uppercase;
     text-shadow: 0 2px 4px rgba(0,0,0,1);
     z-index: 1;
+  }
+
+  /* --- CHECKOUT VIEW --- */
+  .checkout-view {
+    flex: 1;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .checkout-view h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .checkout-view p.subtitle {
+    color: var(--muted);
+    margin-bottom: 40px;
+    font-size: 16px;
+  }
+
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 500px;
+  }
+
+  .payment-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .payment-box:hover {
+    border-color: var(--muted);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .payment-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .payment-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .payment-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--ink);
+  }
+
+  .payment-name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .payment-desc {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
   }
 
   /* Modal */
@@ -336,14 +414,18 @@
     .info-box { flex: 1; min-width: 250px; }
     .games-grid { grid-template-columns: repeat(3, 1fr); }
   }
+  
+  /* Mobile fixes */
   @media (max-width: 768px) {
-    .nav-pills { display: none; }
+    .nav-pills { display: flex; } /* Keep nav pills visible */
+    .nav-pill.discord-btn { display: none; } /* Hide discord on mobile to save space */
     .center-logo { font-size: 40px; }
     .side-col { flex-direction: column; }
     .action-buttons { flex-direction: column; width: 100%; gap: 12px; }
     .btn { position: static; width: 100%; justify-content: center; }
     .games-grid { grid-template-columns: repeat(2, 1fr); }
     .price-row { flex-direction: column; }
+    header { padding: 16px 24px; }
   }
   @media (max-width: 480px) {
     .games-grid { grid-template-columns: 1fr; }
@@ -353,14 +435,14 @@
 <body>
 
 <header>
-  <div class="logo-small">VIXEN</div>
+  <div class="logo-small" onclick="showMain()">VIXEN</div>
   <div class="nav-pills">
-    <button id="backBtn" class="nav-pill hidden" onclick="showMain()">
+    <button id="backBtn" class="nav-pill hidden" onclick="handleBack()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
       Back
     </button>
     
-    <a href="https://discord.com/invite/kNm6J6YqYx" class="nav-pill" target="_blank">
+    <a href="https://discord.com/invite/kNm6J6YqYx" class="nav-pill discord-btn" target="_blank">
       <svg viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
       Discord
     </a>
@@ -460,7 +542,54 @@
   </div>
 </div>
 
-<!-- MODAL -->
+<!-- CHECKOUT VIEW -->
+<div id="checkoutView" class="checkout-view hidden">
+  <h1>Checkout</h1>
+  <p class="subtitle" id="checkoutSubtitle">Select a payment method for your license.</p>
+  
+  <div class="payment-options">
+    <!-- Card -->
+    <div class="payment-box">
+      <div class="payment-info">
+        <div class="payment-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+        </div>
+        <div>
+          <div class="payment-name">Credit / Debit Card</div>
+          <div class="payment-desc">Pay with Visa, Mastercard, Amex</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cash App -->
+    <div class="payment-box">
+      <div class="payment-info">
+        <div class="payment-icon" style="background: rgba(0, 210, 106, 0.1);">
+          <svg viewBox="0 0 24 24" style="fill: #00d26a;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        </div>
+        <div>
+          <div class="payment-name">Cash App</div>
+          <div class="payment-desc">Pay directly via your Cash App balance</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apple Pay -->
+    <div class="payment-box">
+      <div class="payment-info">
+        <div class="payment-icon">
+          <svg viewBox="0 0 24 24"><path d="M16.365 12.372c-.022-2.48 2.026-3.683 2.115-3.732-1.16-1.695-2.96-1.928-3.59-1.955-1.517-.155-2.97.9-3.74.9-.77 0-1.962-.88-3.223-.855-1.635.025-3.146.95-3.985 2.417-1.708 2.96-.432 7.316 1.24 9.713.817 1.178 1.78 2.488 3.08 2.44 1.257-.05 1.73-.8 3.243-.8s1.96.8 3.28.78c1.34-.02 2.19-1.195 3.015-2.38 1.01-1.45 1.43-2.87 1.45-2.94-.03-.012-2.785-1.07-2.81-4.28zM14.15 5.14c.68-.83 1.14-1.98 1.01-3.14-1.01.04-2.22.67-2.94 1.52-.64.74-1.17 1.91-1.01 3.06 1.11.09 2.24-.58 2.94-1.44z"/></svg>
+        </div>
+        <div>
+          <div class="payment-name">Apple Pay</div>
+          <div class="payment-desc">Fast and secure checkout with Face ID</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAME PRICING MODAL -->
 <div class="modal-overlay" id="productModal">
   <div class="modal-content">
     <button class="close-btn" id="closeModal">&times;</button>
@@ -471,19 +600,19 @@
       <div class="price-option">
         <div class="time">1 Day</div>
         <div class="amount">$6.00</div>
-        <a href="dashboard.html" class="btn btn-primary">Purchase</a>
+        <a href="#" class="btn btn-primary" onclick="openCheckout('1 Day', 6)">Purchase</a>
       </div>
       
       <div class="price-option">
         <div class="time">7 Days</div>
         <div class="amount">$15.00</div>
-        <a href="dashboard.html" class="btn btn-primary">Purchase</a>
+        <a href="#" class="btn btn-primary" onclick="openCheckout('7 Days', 15)">Purchase</a>
       </div>
 
       <div class="price-option" style="border-color: rgba(255,255,255,0.2);">
         <div class="time" style="color: #fff;">30 Days</div>
         <div class="amount">$35.00</div>
-        <a href="dashboard.html" class="btn btn-primary">Purchase</a>
+        <a href="#" class="btn btn-primary" onclick="openCheckout('30 Days', 35)">Purchase</a>
       </div>
     </div>
     
@@ -493,24 +622,42 @@
 <script>
   const mainView = document.getElementById('mainView');
   const productsView = document.getElementById('productsView');
+  const checkoutView = document.getElementById('checkoutView');
   const backBtn = document.getElementById('backBtn');
+  
   const modal = document.getElementById('productModal');
   const modalTitle = document.getElementById('modalTitle');
   const closeBtn = document.getElementById('closeModal');
   const gameCards = document.querySelectorAll('.game-card');
+  
+  const checkoutSubtitle = document.getElementById('checkoutSubtitle');
+
+  function hideAll() {
+    mainView.classList.add('hidden');
+    productsView.classList.add('hidden');
+    checkoutView.classList.add('hidden');
+    backBtn.classList.add('hidden');
+  }
 
   function showProducts() {
-    mainView.classList.add('hidden');
+    hideAll();
     productsView.classList.remove('hidden');
     backBtn.classList.remove('hidden');
     window.scrollTo(0, 0);
   }
 
   function showMain() {
-    productsView.classList.add('hidden');
+    hideAll();
     mainView.classList.remove('hidden');
-    backBtn.classList.add('hidden');
     window.scrollTo(0, 0);
+  }
+
+  function handleBack() {
+    if (!checkoutView.classList.contains('hidden')) {
+      showProducts(); // If on checkout, go back to products
+    } else {
+      showMain(); // If on products, go back to main
+    }
   }
 
   gameCards.forEach(card => {
@@ -531,6 +678,18 @@
       modal.classList.remove('active');
     }
   });
+
+  function openCheckout(duration, price) {
+    modal.classList.remove('active');
+    
+    const game = modalTitle.textContent;
+    checkoutSubtitle.textContent = `You are purchasing ${duration} access for ${game} - $${price.toFixed(2)}`;
+    
+    hideAll();
+    checkoutView.classList.remove('hidden');
+    backBtn.classList.remove('hidden');
+    window.scrollTo(0, 0);
+  }
 </script>
 
 </body>
