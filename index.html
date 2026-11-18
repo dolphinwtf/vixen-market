@@ -13,7 +13,6 @@
     --muted: #88888e;
     --purple: #9d4edd;
     --cashapp: #00d26a;
-    --danger: #ff4444;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -655,7 +654,6 @@
   <p class="subtitle" id="checkoutSubtitle">Select a payment method for your license.</p>
   
   <div class="payment-options">
-    <!-- Cash App Option -->
     <a href="https://cash.app/$YourCashTag" target="_blank" class="payment-box">
       <div class="payment-info">
         <div class="payment-icon">
@@ -679,7 +677,6 @@
     </ol>
   </div>
 
-  <!-- Payment Proof Upload -->
   <div class="proof-upload" onclick="document.getElementById('proofFile').click()">
     <input type="file" id="proofFile" style="display: none;" accept="image/*" onchange="handleFileUpload(event)">
     <h4 id="uploadText">Upload Payment Screenshot</h4>
@@ -809,7 +806,6 @@
     }
   }
 
-  // Game card clicks
   gameCards.forEach(card => {
     card.addEventListener('click', (e) => {
       e.preventDefault();
@@ -819,7 +815,6 @@
     });
   });
 
-  // Close modal
   closeBtn.addEventListener('click', () => {
     modal.classList.remove('active');
   });
@@ -830,5 +825,7 @@
     }
   });
 
-  // Open checkout and reset upload state
-  function
+  function openCheckout(duration, price) {
+    modal.classList.remove('active');
+    
+    currentGame = modal
