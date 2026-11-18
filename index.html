@@ -31,7 +31,6 @@
     overflow-x: hidden;
   }
 
-  /* Utility to hide views */
   .hidden { display: none !important; }
 
   header {
@@ -214,11 +213,13 @@
     gap: 16px;
   }
 
+  /* Game Card with Image Background */
   .game-card {
-    background: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
+    background-size: cover;
+    background-position: center;
     border: 1px solid var(--panel-border);
     border-radius: 12px;
-    padding: 30px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -226,27 +227,17 @@
     text-decoration: none;
     color: #fff;
     transition: border-color 0.2s, transform 0.2s;
-    min-height: 120px;
+    min-height: 160px;
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); /* Darkens the image slightly */
   }
 
   .game-card:hover {
     border-color: var(--purple);
     transform: translateY(-2px);
-  }
-
-  .game-card::before {
-    content: '';
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(157, 78, 221, 0.15) 0%, transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.2);
   }
 
   .game-card h3 {
@@ -254,6 +245,8 @@
     font-weight: 800;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    z-index: 1;
   }
 
   /* Modal */
@@ -277,7 +270,7 @@
     border: 1px solid var(--panel-border);
     border-radius: 16px;
     width: 100%;
-    max-width: 500px;
+    max-width: 650px;
     padding: 32px;
     position: relative;
     transform: translateY(20px);
@@ -327,7 +320,7 @@
     font-weight: 600;
     letter-spacing: 0.05em;
   }
-  .price-option .amount { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+  .price-option .amount { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
   .price-option .btn {
     width: 100%;
     justify-content: center;
@@ -361,7 +354,6 @@
 <header>
   <div class="logo-small">VIXEN</div>
   <div class="nav-pills">
-    <!-- The Back button, hidden by default -->
     <button id="backBtn" class="nav-pill hidden" onclick="showMain()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
       Back
@@ -410,6 +402,7 @@
           <li>Fortnite</li>
           <li>DayZ</li>
           <li>Apex Legends</li>
+          <li>Dead by Daylight</li>
         </ul>
       </div>
     </div>
@@ -455,13 +448,15 @@
 <div id="productsView" class="products-view hidden">
   <h1>Available Products</h1>
   <div class="games-grid">
-    <a href="#" class="game-card" data-game="Arc Raiders"><h3>Arc Raiders</h3></a>
-    <a href="#" class="game-card" data-game="Rob Run"><h3>Rob Run</h3></a>
-    <a href="#" class="game-card" data-game="Rust"><h3>Rust</h3></a>
-    <a href="#" class="game-card" data-game="Wardogs"><h3>Wardogs</h3></a>
-    <a href="#" class="game-card" data-game="Fortnite"><h3>Fortnite</h3></a>
-    <a href="#" class="game-card" data-game="DayZ"><h3>DayZ</h3></a>
-    <a href="#" class="game-card" data-game="Apex Legends"><h3>Apex Legends</h3></a>
+    <!-- Images linked directly from your Discord attachments -->
+    <a href="#" class="game-card" style="background-image: url('https://media.discordapp.net/attachments/1178159631468798064/1178159631783383100/arc.jpg');" data-game="Arc Raiders"><h3>Arc Raiders</h3></a>
+    <a href="#" class="game-card" style="background-image: url('https://media.discordapp.net/attachments/1178159631468798064/1178159632131510312/roblox.jpg');" data-game="Rob Run"><h3>Rob Run</h3></a>
+    <a href="#" class="game-card" style="background-image: url('https://media.discordapp.net/attachments/1178159631468798064/1178159632446083152/rust.jpg');" data-game="Rust"><h3>Rust</h3></a>
+    <a href="#" class="game-card" style="background-image: url('https://media.discordapp.net/attachments/1178159631468798064/1178159632710332426/wardogs.jpg');" data-game="Wardogs"><h3>Wardogs</h3></a>
+    <a href="#" class="game-card" style="background-image: url('https://media.discordapp.net/attachments/1178159631468798064/1178159633016520754/fortnite.jpg');" data-game="Fortnite"><h3>Fortnite</h3></a>
+    <a href="#" class="game-card" style="background-image: url('https://media.discordapp.net/attachments/1178159631468798064/1178159633276702801/dayz.jpg');" data-game="DayZ"><h3>DayZ</h3></a>
+    <a href="#" class="game-card" style="background-image: url('https://media.discordapp.net/attachments/1178159631468798064/1178159633582874716/apex.jpg');" data-game="Apex Legends"><h3>Apex Legends</h3></a>
+    <a href="#" class="game-card" style="background-image: url('https://media.discordapp.net/attachments/1178159631468798064/1178159633884868648/dbd.jpg');" data-game="Dead by Daylight"><h3>Dead by Daylight</h3></a>
   </div>
 </div>
 
@@ -474,17 +469,24 @@
     
     <div class="price-row">
       <div class="price-option">
-        <div class="time">Monthly</div>
-        <div class="amount">$XX.XX</div>
+        <div class="time">1 Day</div>
+        <div class="amount">$6.00</div>
         <a href="dashboard.html" class="btn btn-primary">Purchase</a>
       </div>
       
+      <div class="price-option">
+        <div class="time">7 Days</div>
+        <div class="amount">$15.00</div>
+        <a href="dashboard.html" class="btn btn-primary">Purchase</a>
+      </div>
+
       <div class="price-option" style="border-color: rgba(255,255,255,0.2);">
-        <div class="time" style="color: #fff;">Lifetime</div>
-        <div class="amount">$XX.XX</div>
+        <div class="time" style="color: #fff;">30 Days</div>
+        <div class="amount">$35.00</div>
         <a href="dashboard.html" class="btn btn-primary">Purchase</a>
       </div>
     </div>
+    
   </div>
 </div>
 
@@ -497,7 +499,6 @@
   const closeBtn = document.getElementById('closeModal');
   const gameCards = document.querySelectorAll('.game-card');
 
-  // Switch to Products
   function showProducts() {
     mainView.classList.add('hidden');
     productsView.classList.remove('hidden');
@@ -505,7 +506,6 @@
     window.scrollTo(0, 0);
   }
 
-  // Switch back to Main
   function showMain() {
     productsView.classList.add('hidden');
     mainView.classList.remove('hidden');
@@ -513,7 +513,6 @@
     window.scrollTo(0, 0);
   }
 
-  // Modal logic
   gameCards.forEach(card => {
     card.addEventListener('click', (e) => {
       e.preventDefault();
