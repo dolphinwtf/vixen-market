@@ -76,444 +76,141 @@
     width: 100%;
   }
 
-  .hero {
-    text-align: center;
-    max-width: 600px;
-    margin-bottom: 40px;
-    z-index: 2;
-  }
-  .hero p {
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.6;
-  }
+  .hero { text-align: center; max-width: 600px; margin-bottom: 40px; z-index: 2; }
+  .hero p { color: var(--muted); font-size: 15px; line-height: 1.6; }
 
   .center-logo {
-    font-size: 72px;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    padding-left: 0.3em; 
-    margin: 40px 0;
-    text-transform: uppercase;
-    z-index: 2;
-    text-shadow: 0 0 40px rgba(255,255,255,0.1);
-    white-space: nowrap;
+    font-size: 72px; font-weight: 300; letter-spacing: 0.3em; padding-left: 0.3em; 
+    margin: 40px 0; text-transform: uppercase; z-index: 2;
+    text-shadow: 0 0 40px rgba(255,255,255,0.1); white-space: nowrap;
   }
 
   .content-grid {
-    display: grid;
-    grid-template-columns: 300px 1fr 300px;
-    gap: 40px;
-    width: 100%;
-    align-items: center;
-    z-index: 2;
+    display: grid; grid-template-columns: 300px 1fr 300px; gap: 40px;
+    width: 100%; align-items: center; z-index: 2;
   }
-
   .side-col { display: flex; flex-direction: column; gap: 20px; }
 
   .info-box {
-    background: var(--panel);
-    border: 1px solid var(--panel-border);
-    border-radius: 12px;
-    padding: 24px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--panel); border: 1px solid var(--panel-border);
+    border-radius: 12px; padding: 24px; backdrop-filter: blur(12px);
   }
   .info-box h4 {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
   }
   .info-box ul { list-style: none; }
   .info-box li {
-    font-size: 13px;
-    color: #d1d5db;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 13px; color: #d1d5db; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
   }
   .info-box li::before { content: "•"; color: var(--muted); }
-
-  .info-box p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
+  .info-box p { font-size: 13px; color: var(--muted); line-height: 1.5; }
   .info-box a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    display: inline-block;
-    margin-top: 12px;
+    color: #fff; text-decoration: none; font-size: 13px;
+    font-weight: 600; display: inline-block; margin-top: 12px;
   }
   .info-box a:hover { text-decoration: underline; }
 
   .action-buttons {
-    display: flex;
-    gap: 16px;
-    margin-top: 60px;
-    z-index: 2;
-    width: 100%;
-    justify-content: center;
-    position: relative;
+    display: flex; gap: 16px; margin-top: 60px; z-index: 2;
+    width: 100%; justify-content: center; position: relative;
   }
   
   .btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 32px;
-    border-radius: 100px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.2s, opacity 0.2s;
-    cursor: pointer;
-    border: none;
+    display: flex; align-items: center; gap: 10px;
+    padding: 16px 32px; border-radius: 100px; font-size: 16px;
+    font-weight: 600; text-decoration: none; transition: transform 0.2s, opacity 0.2s;
+    cursor: pointer; border: none;
   }
   .btn:hover { transform: translateY(-2px); opacity: 0.9; }
   .btn-primary { background: #fff; color: #000; }
   
   .sub-features {
-    display: flex;
-    gap: 24px;
-    margin-top: 24px;
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    z-index: 2;
+    display: flex; gap: 24px; margin-top: 24px; font-size: 11px;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; z-index: 2;
   }
 
   /* --- PRODUCTS VIEW --- */
-  .products-view {
-    flex: 1;
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 24px;
-    width: 100%;
-  }
-
-  .products-view h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 32px;
-  }
-
-  .games-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
+  .products-view { flex: 1; max-width: 1000px; margin: 40px auto; padding: 0 24px; width: 100%; }
+  .products-view h1 { font-size: 32px; font-weight: 700; margin-bottom: 32px; }
+  .games-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
   .game-card {
-    background-color: transparent;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    transition: border-color 0.2s, transform 0.2s;
-    height: 180px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
+    background-color: transparent; background-size: cover; background-position: center;
+    background-repeat: no-repeat; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    text-align: center; text-decoration: none; color: #fff;
+    transition: border-color 0.2s, transform 0.2s; height: 180px;
+    position: relative; overflow: hidden; cursor: pointer;
   }
-
-  .game-card:hover {
-    border-color: var(--purple);
-    transform: translateY(-2px);
-  }
-
+  .game-card:hover { border-color: var(--purple); transform: translateY(-2px); }
   .game-card h3 {
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px rgba(0,0,0,1);
-    z-index: 1;
+    font-size: 18px; font-weight: 800; letter-spacing: 0.05em;
+    text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,1); z-index: 1;
   }
 
   /* --- CHECKOUT VIEW --- */
-  .checkout-view {
-    flex: 1;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 24px;
-    width: 100%;
-  }
-
-  .checkout-view h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-  
-  .checkout-view p.subtitle {
-    color: var(--muted);
-    margin-bottom: 40px;
-    font-size: 16px;
-  }
-
-  .payment-options {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 500px;
-  }
+  .checkout-view { flex: 1; max-width: 800px; margin: 40px auto; padding: 0 24px; width: 100%; }
+  .checkout-view h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+  .checkout-view p.subtitle { color: var(--muted); margin-bottom: 40px; font-size: 16px; }
+  .payment-options { display: flex; flex-direction: column; gap: 16px; max-width: 500px; }
 
   .payment-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--panel);
-    border: 1px solid var(--panel-border);
-    border-radius: 12px;
-    padding: 24px;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    text-decoration: none;
-    color: var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--panel); border: 1px solid var(--panel-border);
+    border-radius: 12px; padding: 24px; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s; text-decoration: none; color: var(--ink);
   }
-
-  .payment-box:hover {
-    border-color: var(--cashapp);
-    background: rgba(0, 210, 106, 0.05);
-  }
-
-  .payment-info {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
+  .payment-box:hover { border-color: var(--cashapp); background: rgba(0, 210, 106, 0.05); }
+  .payment-info { display: flex; align-items: center; gap: 16px; }
   .payment-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.1);
+    width: 40px; height: 40px; display: flex; align-items: center;
+    justify-content: center; border-radius: 8px; background: rgba(255,255,255,0.1);
   }
-
-  .payment-icon svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--cashapp);
-  }
-
-  .payment-name {
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .payment-desc {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 4px;
-    line-height: 1.4;
-  }
+  .payment-icon svg { width: 24px; height: 24px; fill: var(--cashapp); }
+  .payment-name { font-size: 16px; font-weight: 600; }
+  .payment-desc { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
 
   .cashapp-steps {
-    background: var(--panel);
-    border: 1px solid var(--panel-border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-top: 32px;
-    max-width: 500px;
+    background: var(--panel); border: 1px solid var(--panel-border);
+    border-radius: 12px; padding: 24px; margin-top: 32px; max-width: 500px;
   }
-  
-  .cashapp-steps h3 {
-    font-size: 14px;
-    margin-bottom: 12px;
-    color: var(--cashapp);
-  }
-  
-  .cashapp-steps ol {
-    padding-left: 20px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  .cashapp-steps strong {
-    color: #fff;
-  }
-
-  .proof-upload {
-    background: var(--panel);
-    border: 1px dashed var(--panel-border);
-    border-radius: 12px;
-    padding: 32px;
-    margin-top: 24px;
-    max-width: 500px;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.2s;
-  }
-  .proof-upload:hover {
-    border-color: var(--muted);
-  }
-  .proof-upload h4 {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-  .proof-upload p {
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  /* --- TICKET VIEW --- */
-  .ticket-view {
-    flex: 1;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 24px;
-    width: 100%;
-  }
-  
-  .ticket-view h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 32px;
-  }
-
-  .ticket-card {
-    background: var(--panel);
-    border: 1px solid var(--panel-border);
-    border-radius: 16px;
-    padding: 32px;
-    max-width: 600px;
-  }
-  
-  .ticket-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    font-size: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding-bottom: 16px;
-  }
-  
-  .ticket-row:last-child {
-    border-bottom: none;
-    margin-bottom: 32px;
-  }
-  
-  .ticket-label {
-    color: var(--muted);
-  }
-  
-  .ticket-value {
-    font-weight: 600;
-    text-align: right;
-  }
-  
-  .ticket-status {
-    background: rgba(0, 210, 106, 0.1);
-    color: var(--cashapp);
-    padding: 12px 16px;
-    border-radius: 8px;
-    font-size: 14px;
-    text-align: center;
-    font-weight: 600;
-    border: 1px solid rgba(0, 210, 106, 0.2);
-  }
+  .cashapp-steps h3 { font-size: 14px; margin-bottom: 12px; color: var(--cashapp); }
+  .cashapp-steps ol { padding-left: 20px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+  .cashapp-steps strong { color: #fff; }
 
   /* Modal */
   .modal-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
   }
   .modal-overlay.active { opacity: 1; pointer-events: all; }
   .modal-content {
-    background: #111113;
-    border: 1px solid var(--panel-border);
-    border-radius: 16px;
-    width: 100%;
-    max-width: 650px;
-    padding: 32px;
-    position: relative;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
+    background: #111113; border: 1px solid var(--panel-border);
+    border-radius: 16px; width: 100%; max-width: 650px;
+    padding: 32px; position: relative; transform: translateY(20px); transition: transform 0.3s ease;
   }
   .modal-overlay.active .modal-content { transform: translateY(0); }
   .close-btn {
-    position: absolute;
-    top: 16px; right: 16px;
-    background: transparent;
-    border: none;
-    color: var(--muted);
-    font-size: 24px;
-    cursor: pointer;
-    transition: color 0.2s;
+    position: absolute; top: 16px; right: 16px; background: transparent;
+    border: none; color: var(--muted); font-size: 24px; cursor: pointer; transition: color 0.2s;
   }
   .close-btn:hover { color: #fff; }
-  .modal-content h2 {
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .modal-content p.sub {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 24px;
-  }
+  .modal-content h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .modal-content p.sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
   .price-row { display: flex; gap: 16px; }
   .price-option {
-    flex: 1;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--panel-border);
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.2s;
+    flex: 1; background: rgba(255,255,255,0.03); border: 1px solid var(--panel-border);
+    border-radius: 12px; padding: 20px; display: flex; flex-direction: column; transition: border-color 0.2s;
   }
   .price-option:hover { border-color: rgba(255,255,255,0.2); }
-  .price-option .time {
-    font-size: 12px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-  }
+  .price-option .time { font-size: 12px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 600; letter-spacing: 0.05em; }
   .price-option .amount { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
-  .price-option .btn {
-    width: 100%;
-    justify-content: center;
-    padding: 12px;
-    font-size: 14px;
-    margin-top: auto;
-  }
+  .price-option .btn { width: 100%; justify-content: center; padding: 12px; font-size: 14px; margin-top: auto; }
 
   @media (max-width: 1024px) {
     .content-grid { grid-template-columns: 1fr; }
@@ -521,7 +218,6 @@
     .info-box { flex: 1; min-width: 250px; }
     .games-grid { grid-template-columns: repeat(3, 1fr); }
   }
-  
   @media (max-width: 768px) {
     .nav-pills { display: flex; }
     .nav-pill.discord-btn { display: none; }
@@ -672,47 +368,9 @@
     <ol>
       <li>Open Cash App and send the exact amount to <strong>$YourCashTag</strong>.</li>
       <li>Take a screenshot of the receipt.</li>
-      <li>Upload the receipt below and click Create Ticket.</li>
-      <li>Join our <a href="https://discord.com/invite/kNm6J6YqYx" target="_blank" style="color: #fff; font-weight: bold; text-decoration: underline;">Discord</a> to receive your key.</li>
+      <li>Join our <a href="https://discord.com/invite/kNm6J6YqYx" target="_blank" style="color: #fff; font-weight: bold; text-decoration: underline;">Discord</a> and open a ticket.</li>
+      <li>Send the receipt and the license you want. We'll deliver your key instantly.</li>
     </ol>
-  </div>
-
-  <div class="proof-upload" onclick="document.getElementById('proofFile').click()">
-    <input type="file" id="proofFile" style="display: none;" accept="image/*" onchange="handleFileUpload(event)">
-    <h4 id="uploadText">Upload Payment Screenshot</h4>
-    <p id="uploadSubtext">Click here to select an image from your device.</p>
-    <img id="previewImg" class="hidden" style="max-width: 100%; border-radius: 8px; margin-top: 16px; display: block;" alt="Receipt Preview">
-  </div>
-
-  <button class="btn btn-primary" style="margin-top: 24px; width: 100%; max-width: 500px; justify-content: center;" onclick="createTicket()">Create Purchase Ticket</button>
-</div>
-
-<!-- TICKET VIEW -->
-<div id="ticketView" class="ticket-view hidden">
-  <h1>Ticket Created</h1>
-  <div class="ticket-card">
-    <div class="ticket-row">
-      <span class="ticket-label">Product</span>
-      <span class="ticket-value" id="ticketGame">Game Name</span>
-    </div>
-    <div class="ticket-row">
-      <span class="ticket-label">Duration</span>
-      <span class="ticket-value" id="ticketDuration">1 Day</span>
-    </div>
-    <div class="ticket-row">
-      <span class="ticket-label">Total Price</span>
-      <span class="ticket-value" id="ticketPrice">$6.00</span>
-    </div>
-    <div class="ticket-row">
-      <span class="ticket-label">Proof Attached</span>
-      <div style="text-align: right;">
-        <img id="ticketProofImg" style="max-width: 150px; border-radius: 6px; border: 1px solid var(--panel-border);" alt="Proof">
-      </div>
-    </div>
-
-    <div class="ticket-status">
-      Pending Verification. Please open a ticket in Discord and send your receipt.
-    </div>
   </div>
 </div>
 
@@ -742,7 +400,6 @@
         <a href="#" class="btn btn-primary" onclick="openCheckout('30 Days', 35)">Purchase</a>
       </div>
     </div>
-    
   </div>
 </div>
 
@@ -750,7 +407,6 @@
   const mainView = document.getElementById('mainView');
   const productsView = document.getElementById('productsView');
   const checkoutView = document.getElementById('checkoutView');
-  const ticketView = document.getElementById('ticketView');
   const backBtn = document.getElementById('backBtn');
   
   const modal = document.getElementById('productModal');
@@ -759,27 +415,11 @@
   const gameCards = document.querySelectorAll('.game-card');
   
   const checkoutSubtitle = document.getElementById('checkoutSubtitle');
-  
-  const proofFile = document.getElementById('proofFile');
-  const uploadText = document.getElementById('uploadText');
-  const uploadSubtext = document.getElementById('uploadSubtext');
-  const previewImg = document.getElementById('previewImg');
-  
-  const ticketGame = document.getElementById('ticketGame');
-  const ticketDuration = document.getElementById('ticketDuration');
-  const ticketPrice = document.getElementById('ticketPrice');
-  const ticketProofImg = document.getElementById('ticketProofImg');
-
-  let currentGame = "";
-  let currentDuration = "";
-  let currentPrice = "";
-  let uploadedImageSrc = "";
 
   function hideAll() {
     mainView.classList.add('hidden');
     productsView.classList.add('hidden');
     checkoutView.classList.add('hidden');
-    ticketView.classList.add('hidden');
     backBtn.classList.add('hidden');
   }
 
@@ -797,9 +437,7 @@
   }
 
   function handleBack() {
-    if (!ticketView.classList.contains('hidden')) {
-      showProducts();
-    } else if (!checkoutView.classList.contains('hidden')) {
+    if (!checkoutView.classList.contains('hidden')) {
       showProducts();
     } else {
       showMain();
@@ -827,5 +465,14 @@
 
   function openCheckout(duration, price) {
     modal.classList.remove('active');
-    
-    currentGame = modal
+    const game = modalTitle.textContent;
+    checkoutSubtitle.textContent = `You are purchasing ${duration} access for ${game} - $${price.toFixed(2)}`;
+    hideAll();
+    checkoutView.classList.remove('hidden');
+    backBtn.classList.remove('hidden');
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
