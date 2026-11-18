@@ -425,13 +425,6 @@
     text-align: right;
   }
   
-  .proof-preview {
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 12px;
-    border: 1px solid var(--panel-border);
-  }
-  
   .ticket-status {
     background: rgba(0, 210, 106, 0.1);
     color: var(--cashapp);
@@ -783,6 +776,7 @@
   let currentGame = "";
   let currentDuration = "";
   let currentPrice = "";
+  let uploadedImageSrc = "";
 
   function hideAll() {
     mainView.classList.add('hidden');
@@ -807,14 +801,15 @@
 
   function handleBack() {
     if (!ticketView.classList.contains('hidden')) {
-      showProducts(); // Go back to products from ticket
+      showProducts();
     } else if (!checkoutView.classList.contains('hidden')) {
-      showProducts(); // Go back to products from checkout
+      showProducts();
     } else {
-      showMain(); // Go back to main
+      showMain();
     }
   }
 
+  // Game card clicks
   gameCards.forEach(card => {
     card.addEventListener('click', (e) => {
       e.preventDefault();
@@ -822,4 +817,18 @@
       modalTitle.textContent = gameName;
       modal.classList.add('active');
     });
- 
+  });
+
+  // Close modal
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+
+  // Open checkout and reset upload state
+  function
