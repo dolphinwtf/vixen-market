@@ -109,12 +109,6 @@
     animation: pulse 2s infinite;
   }
 
-  .status-dot.blue {
-    background-color: var(--blue);
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-    animation: pulse 2s infinite;
-  }
-
   .status-dot.red {
     background-color: var(--red);
     box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
@@ -202,4 +196,102 @@
     align-items: center;
     gap: 10px;
     font-size: 12px;
-    font-weight: 6
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .box-header svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li {
+    font-size: 14px;
+    color: #d4d4d8;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .feature-list li::before { content: "•"; color: #52525b; font-size: 18px; line-height: 0; }
+
+  .text-box p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+  .text-box a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 14px;
+    transition: gap 0.2s;
+  }
+  .text-box a:hover { text-decoration: underline; text-underline-offset: 4px; gap: 10px; }
+
+  .center-col { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+  }
+
+  .center-col::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.05);
+    filter: blur(80px);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .brand-logo {
+    font-size: 90px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+    padding-left: 0.2em; 
+    z-index: 1;
+    text-shadow: 0 0 20px rgba(255,255,255,0.1);
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--ink);
+    color: #000;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-bottom: 24px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+  }
+  .cta-btn:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+  }
+  .cta-btn:active {
+    transform: translateY(1px);
+  }
+  .cta-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
+
+  .bottom-text {
+    display: flex;
+    gap: 32px;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+  
